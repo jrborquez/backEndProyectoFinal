@@ -1,9 +1,9 @@
 <?php
     $conexion = new mysqli(
-        "localhost:3306",
-        "root",
-        "Arylvere1",
-        "Libros"
+        "localhost",
+        "id20463551_jrborquez",
+        "JoseRojo.1",
+        "id20463551_libros"
     );
 
     if (mysqli_connect_errno()){
