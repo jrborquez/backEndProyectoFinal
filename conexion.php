@@ -9,6 +9,6 @@
     if (mysqli_connect_errno()){
         printf("Falló la conexión");
     }else{
-        printf("online");
+        //printf("online");
     }
 ?>

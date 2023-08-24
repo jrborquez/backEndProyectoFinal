@@ -5,7 +5,7 @@
   function ConsultarLibros($nombre)
   {
     include 'conexion.php';
-    $sentencia= "SELECT * FROM libros WHERE nombre='".$nombre."'";
+    $sentencia= "SELECT * FROM libros WHERE nombre='$nombre';";
     $resultado= $conexion->query($sentencia) or die ("Error al consultar libro".mysqli_error($conexion));
     $fila=$resultado->fetch_assoc();
 

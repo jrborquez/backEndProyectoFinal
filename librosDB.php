@@ -64,7 +64,7 @@
                   echo "<td>"; echo $fila['anioPublicacion']; "<td/>";
                   echo "<td>"; echo $fila['precio']; "<td/>";
                   echo "<th><a href='modificarLibros.php?nombre=".$fila['nombre']."'><i class='bi bi-pen'></i></a></th>";
-                  echo "<th><a href='eliminar_libro.php'><i class='bi bi-trash'></i></a></th>";
+                  echo "<th><a href='eliminar_libro.php?nombre=".$fila['nombre']."'><i class='bi bi-trash'></i></a></th>";
                 echo "<tr/>";
               }
               ?>
