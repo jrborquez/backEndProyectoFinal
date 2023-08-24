@@ -10,6 +10,7 @@
 <body>
     
         <img class='imagen' src="./libros.jpg" alt="hero">
+        <img class="imagen2" src="./imagenLibros.jpg" alt="imageniOS">
 
         <div class="contenido">
             <h1>Proyecto Final BackEnd</h1>
