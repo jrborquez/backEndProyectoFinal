@@ -8,7 +8,9 @@
 
         $sentencia= "INSERT INTO libros (nombre, autor, editorial, anioPublicacion, precio) VALUES ('$nombre', '$autor', '$editorial', '$anioPublicacion', '$precio')";
         $conexion-> query($sentencia) or die ("Error al ingresar los datos".mysqli_error($conexion));
-    } 
+
+        mysqli_close($conexion);
+    }
 ?>
 
 <script type="text/javascript">

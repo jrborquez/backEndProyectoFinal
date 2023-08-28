@@ -6,7 +6,7 @@ function EliminarLibro($nombre){
     include 'conexion.php';
     $sentencia="DELETE FROM libros WHERE nombre='$nombre';";
     $conexion->query($sentencia) or die ("Error al eliminar Libro".mysqli_error($conexion));
-
+    mysqli_close($conexion);
 }
 
 ?>

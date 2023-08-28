@@ -53,21 +53,35 @@
             <tbody>
               <?php
               include "conexion.php";
-              $sentencia="SELECT * FROM libros";
+              
+              $sentencia="SELECT * FROM libros;";
               $resultado= $conexion-> query($sentencia) or die (mysqli_error($conexion));
-              while($fila=$resultado->fetch_assoc())
-              {
+              $contar= mysqli_num_rows($resultado);
+              $i=0;
+
+              while($fila=$resultado->fetch_array()){
+                
                 echo "<tr>";
-                  echo "<td>"; echo $fila['nombre']; "<td/>";
-                  echo "<td>"; echo $fila['autor']; "<td/>";
-                  echo "<td>"; echo $fila['editorial']; "<td/>";
-                  echo "<td>"; echo $fila['anioPublicacion']; "<td/>";
-                  echo "<td>"; echo $fila['precio']; "<td/>";
-                  echo "<th><a href='modificarLibros.php?nombre=".$fila['nombre']."'><i class='bi bi-pen'></i></a></th>";
-                  echo "<th><a href='eliminar_libro.php?nombre=".$fila['nombre']."'><i class='bi bi-trash'></i></a></th>";
+                    echo "<td>"; echo $fila['nombre']; "<td/>";
+                    echo "<td>"; echo $fila['autor']; "<td/>";
+                    echo "<td>"; echo $fila['editorial']; "<td/>";
+                    echo "<td>"; echo $fila['anioPublicacion']; "<td/>";
+                    echo "<td>"; echo $fila['precio']; "<td/>";
+                    echo "<td><a href='modificarLibros.php?nombre=".$fila['nombre']."'><i class='bi bi-pen'></i></a></td>";
+                    echo "<td><a href='eliminar_libro.php?nombre=".$fila['nombre']."'><i class='bi bi-trash'></i></a></td>";
                 echo "<tr/>";
+                $i++;
+
+                if($i == $contar){
+                  return;  /* cerrar el while loop, con un return dentro del loop */
+                  };
               }
+              
+              mysqli_close($conexion);
+              
+
               ?>
+                 
             </tbody>
         </table>
     </div>

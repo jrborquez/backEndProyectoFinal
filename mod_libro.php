@@ -8,6 +8,8 @@
     
     $sentencia = "UPDATE libros SET nombre='$nombre', autor='$autor', editorial='$editorial', anioPublicacion='$anioPublicacion', precio='$precio' WHERE nombre='$nombre';";
     $conexion->query($sentencia) or die ("Error en actualizar datos".mysqli_error($conexion));
+
+    mysqli_close($conexion);
 }   
 
 ?>

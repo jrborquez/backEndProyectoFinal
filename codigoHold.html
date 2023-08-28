@@ -21,3 +21,62 @@
               <option value="dramatico">Dramático</option>
               <option value="didactico">Didáctico</option>
           </select> -->
+
+
+<!-- 
+          /* $fila = mysqli_fetch_array($resultado); */
+
+            /* 
+                  foreach($fila as ($nombre, $autor, $editorial, $anioPublicacion, $precio)){
+                
+                    echo "<tr>";
+                        echo "<td>"; echo "$nombre"; "<td/>";
+                        echo "<td>"; echo "$autor"; "<td/>";
+                        echo "<td>"; echo "$editorial"; "<td/>";
+                        echo "<td>"; echo "$anioPublicacion";"<td/>";
+                        echo "<td>"; echo "$precio"; "<td/>";
+                        echo "<td><a href='modificarLibros.php?nombre=".$fila['nombre']."'><i class='bi bi-pen'></i></a></td>";
+                        echo "<td><a href='eliminar_libro.php?nombre=".$fila['nombre']."'><i class='bi bi-trash'></i></a></td>";
+                    echo "<tr/>";
+                    }; */
+                    /* echo "<td>"; echo $fila['editorial']; "<td/>";
+                    echo "<td>"; echo $fila['anioPublicacion']; "<td/>";
+                    echo "<td>"; echo $fila['precio']; "<td/>";
+                    echo "<td><a href='modificarLibros.php?nombre=".$fila['nombre']."'><i class='bi bi-pen'></i></a></td>";
+                    echo "<td><a href='eliminar_libro.php?nombre=".$fila['nombre']."'><i class='bi bi-trash'></i></a></td>"; */ -->
+
+
+                    <?php
+              include "conexion.php";
+              
+              $sentencia="SELECT * FROM libros;";
+              $resultado= $conexion-> query($sentencia) or die (mysqli_error($conexion));
+              $contar= mysqli_num_rows($resultado);
+              $i=0;
+
+              while($fila=$resultado->fetch_array()){
+                
+                echo "<tr>";
+                    echo "<td>"; echo $fila['nombre']; "<td/>";
+                    echo "<td>"; echo $fila['autor']; "<td/>";
+                    echo "<td>"; echo $fila['editorial']; "<td/>";
+                    echo "<td>"; echo $fila['anioPublicacion']; "<td/>";
+                    echo "<td>"; echo $fila['precio']; "<td/>";
+                    echo "<td><a href='modificarLibros.php?nombre=".$fila['nombre']."'><i class='bi bi-pen'></i></a></td>";
+                    echo "<td><a href='eliminar_libro.php?nombre=".$fila['nombre']."'><i class='bi bi-trash'></i></a></td>";
+                echo "<tr/>";
+                $i++;
+
+                if($i == $contar){
+                  break;
+                  };
+              }
+
+              mysqli_close($conexion);
+              
+             if (mysqli_connect_errno()){
+                printf("Falló la conexión");
+              }else{
+                printf("online");
+              }; 
+              ?>
